@@ -17,10 +17,6 @@
 #define BUFFER_SIZE 65507
 #define TIMEOUT_SECONDS 10
 
-char *client_sem_name = "/client_sem";
-sem_t *client_sem;
-struct timespec ts;
-
 int udp_open(char *, char *, int);
 
 ssize_t udp_write(int, char *, int, struct sockaddr *, int);

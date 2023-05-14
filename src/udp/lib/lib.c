@@ -1,5 +1,9 @@
 #include "lib.h"
 
+static char *client_sem_name = "/client_sem";
+static sem_t *client_sem;
+static struct timespec ts;
+
 int
 udp_open(char *hostName, char *port, int server)
 {

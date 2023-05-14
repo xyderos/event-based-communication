@@ -19,6 +19,12 @@ jobs:
       
       - name: Install valgrind
         run: sudo apt install -y valgrind
+
+      - name: Install libevent
+        run: sudo apt install -y libevent-dev
+
+      - name: Install liburing
+        run: sudo apt install -y liburing-dev
       
       - name: Export path to LD_LIBRARY_PATH
         run: echo "LD_LIBRARY_PATH=$(pwd)" >> $GITHUB_ENV

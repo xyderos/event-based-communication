@@ -33,7 +33,7 @@ NAME_OF_THE_OBJECTS_OF_THE_TESTS := temp_test_obj_directory
 OBJECT_FILES_OF_TESTS_WITHOUT_PREFIX := $(patsubst %$(SOURCE_FILES_SUFFIX),%$(OBJECT_SUFFIX),$(patsubst %$(HEADER_SUFFIX),%$(OBJECT_SUFFIX),$(shell find $(RELATIVE_TESTS_FOLDER_PATH) -type f -name "*$(HEADER_SUFFIX)")))
 OBJECT_FILES_OF_TESTS_WITH_PREFIX := $(foreach F,$(OBJECT_FILES_OF_TESTS_WITHOUT_PREFIX),$(lastword $(subst $(RELATIVE_TESTS_FOLDER_PATH), ,$F)))
 TEST_OBJECTS :=$(addprefix $(NAME_OF_THE_OBJECTS_OF_THE_TESTS)/, $(OBJECT_FILES_OF_TESTS_WITH_PREFIX))
-LIBS := -lsubunit -lm -lcheck $(NAME_OF_THE_LIBRARY)
+LIBS := -lsubunit -lm -lcheck -luring -levent $(NAME_OF_THE_LIBRARY)
 
 MEM_CHECK_FILE := valgrind_results.txt
 

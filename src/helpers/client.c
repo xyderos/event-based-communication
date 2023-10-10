@@ -44,5 +44,5 @@ generate_requests(unsigned int nof_threads, const char *const file_path)
 			}
 		}
 	} else
-		send_requests(file_path);
+		send_requests((void *)file_path);
 }

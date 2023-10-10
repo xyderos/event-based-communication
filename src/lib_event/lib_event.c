@@ -11,6 +11,7 @@ read_cb(struct bufferevent *bev, void *ctx)
 	char buf[BUFSIZ] = "";
 	struct evbuffer *output;
 	int fd = 0;
+	(void)ctx;
 
 	bufferevent_read(bev, buf, BUFSIZ);
 
@@ -30,6 +31,8 @@ void
 error_cb(struct bufferevent *bev, short error, void *ctx)
 {
 	struct event_base *base;
+
+	(void)ctx;
 
 	if (error & BEV_EVENT_EOF) {
 		if (--num_reqs == 0) {
@@ -51,6 +54,8 @@ do_accept(int sfd, short event, void *arg)
 	struct bufferevent *bev = NULL;
 	int cfd = 0;
 
+	(void)event;
+
 	cfd = accept4(sfd, NULL, NULL, SOCK_NONBLOCK);
 
 	if (cfd == -1) {
@@ -64,7 +69,7 @@ do_accept(int sfd, short event, void *arg)
 }
 
 void
-lib_event(unsigned int nof_requests)
+lib_event(void)
 {
 	struct event_base *base = NULL;
 	struct event *listener_event = NULL;

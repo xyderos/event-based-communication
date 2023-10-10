@@ -11,4 +11,4 @@ void error_cb(struct bufferevent *, short, void *);
 
 void do_accept(int, short, void *);
 
-void lib_event(unsigned int);
+void lib_event(void);

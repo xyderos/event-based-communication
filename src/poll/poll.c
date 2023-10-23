@@ -9,8 +9,8 @@
 
 #define BUF_SIZE 512
 #define FILE_NAME1 "/tmp/io_uring_sq_test.txt"
-#define STR1 "What is this life if, full of care,\n"
-#define STR2 "We have no time to stand and stare."
+#define STR1 "gunga\n"
+#define STR2 "ginga"
 
 static int
 start_fixed_buffer_ops(struct io_uring *ring)
@@ -64,7 +64,6 @@ start_fixed_buffer_ops(struct io_uring *ring)
 		if (ret < 0) {
 			return 1;
 		}
-		/* Now that we have the CQE, let's process the data */
 		if (cqe->res < 0) {
 			break;
 		}
